@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/logo-light.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Lithium Battery Manufacturing | Doon Energy Solutions Pvt. Ltd.</title>
+  <meta name="description" content="Doon Energy Solutions Pvt. Ltd. manufactures high-performance LFP Lithium Iron Phosphate batteries in Jaipur, India for solar, industrial backup, EVs, and grid storage applications.">
+  
+
+  
+  <style>
+    /* ============================================================
+       BATTERY PAGE SPECIFIC STYLES
+       ============================================================ */
+    
+    /* Active Nav State */
+    .nav-links a.active {
+      color: var(--clr-orange-dark);
+    }
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    /* Hero Orbs Animation */
+    #hero-battery {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding-top: 70px;
+      background: linear-gradient(to right, rgba(13,21,32,0.95), rgba(13,21,32,0.4)), url('images/battery_storage.jpg') center/cover no-repeat;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.6;
+      animation: floatOrb 15s infinite ease-in-out alternate;
+    }
+    
+    .orb-1 {
+      width: 400px;
+      height: 400px;
+      background: rgba(245, 166, 35, 0.4);
+      top: 10%;
+      left: 10%;
+    }
+    
+    .orb-2 {
+      width: 500px;
+      height: 500px;
+      background: rgba(58, 141, 63, 0.4);
+      bottom: -10%;
+      right: 5%;
+      animation-delay: -5s;
+    }
+
+    .orb-3 {
+      width: 300px;
+      height: 300px;
+      background: rgba(26, 79, 160, 0.5);
+      top: 40%;
+      left: 50%;
+      transform: translateX(-50%);
+      animation-delay: -10s;
+    }
+
+    /* Particle Dots */
+    .particles {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+      background-size: 30px 30px;
+      animation: panParticles 20s linear infinite;
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(40px, -40px) scale(1.1); }
+    }
+
+    @keyframes panParticles {
+      0% { background-position: 0 0; }
+      100% { background-position: 60px 60px; }
+    }
+
+    /* Comparison Table */
+    .comparison-wrapper {
+      background: var(--clr-white);
+      border-radius: var(--r-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      overflow-x: auto;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;  /* IE and Edge */
+    }
+    .comparison-wrapper::-webkit-scrollbar {
+      display: none; /* Chrome, Safari and Opera */
+    }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .comp-table th, .comp-table td {
+      padding: 1.25rem 1rem;
+      text-align: center;
+      border-bottom: 1px solid var(--clr-border);
+    }
+    
+    .comp-table th:first-child, .comp-table td:first-child {
+      text-align: left;
+      font-weight: 600;
+      color: var(--clr-text);
+    }
+
+    .comp-table th {
+      font-family: var(--ff-head);
+      font-size: 1.1rem;
+      color: var(--clr-muted);
+    }
+
+    .col-lfp {
+      background: linear-gradient(135deg, rgba(245,166,35,0.08) 0%, rgba(245,166,35,0.15) 100%);
+      border-radius: var(--r-md) var(--r-md) 0 0;
+    }
+    
+    .comp-table th.col-lfp {
+      color: var(--clr-orange-dark);
+      font-weight: 800;
+      border-bottom: 2px solid var(--clr-orange);
+    }
+
+    .comp-table td.col-lfp {
+      background: rgba(245,166,35,0.05);
+      font-weight: 600;
+      color: var(--clr-text);
+    }
+    
+    .comp-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comp-table tr:last-child td.col-lfp {
+      border-radius: 0 0 var(--r-md) var(--r-md);
+    }
+
+    .check-icon {
+      color: var(--clr-green);
+      font-size: 1.2rem;
+    }
+    .cross-icon {
+      color: #E53935;
+      font-size: 1.2rem;
+    }
+
+    /* Products Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .product-card {
+      background: var(--clr-white);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-lg);
+      padding: 2rem;
+      position: relative;
+      transition: transform var(--tr), box-shadow var(--tr), border-color var(--tr);
+      overflow: hidden;
+    }
+
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--clr-orange), var(--clr-green));
+      opacity: 0;
+      transition: opacity var(--tr);
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(245, 166, 35, 0.15);
+      border-color: rgba(245, 166, 35, 0.3);
+    }
+
+    .product-card:hover::before {
+      opacity: 1;
+    }
+
+    .prod-icon {
+      width: 60px; height: 60px;
+      background: var(--clr-orange-light);
+      border-radius: var(--r-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      color: var(--clr-orange-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .prod-title {
+      font-family: var(--ff-head);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .prod-capacity {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--clr-blue);
+      background: var(--clr-blue-light);
+      padding: 0.3em 0.8em;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .prod-specs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .prod-spec-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      border-bottom: 1px dashed var(--clr-border);
+      padding-bottom: 0.4rem;
+    }
+
+    .prod-spec-label {
+      color: var(--clr-muted);
+    }
+
+    .prod-spec-val {
+      font-weight: 600;
+      color: var(--clr-text);
+    }
+
+    .btn-enquire {
+      width: 100%;
+      padding: 0.8em;
+      background: var(--clr-bg2);
+      color: var(--clr-text);
+      font-weight: 600;
+      border-radius: var(--r-md);
+      transition: all var(--tr);
+      text-align: center;
+      display: block;
+    }
+
+    .product-card:hover .btn-enquire {
+      background: var(--clr-orange);
+      color: var(--clr-white);
+    }
+
+    /* Manufacturing Process */
+    .process-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+      position: relative;
+    }
+
+    .process-row::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: dashed 2px var(--clr-border);
+      z-index: 0;
+    }
+
+    .process-step {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .process-icon {
+      width: 80px; height: 80px;
+      background: var(--clr-white);
+      border: 2px solid var(--clr-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 1.5rem;
+      transition: all var(--tr);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .process-step:hover .process-icon {
+      border-color: var(--clr-green);
+      color: var(--clr-green);
+      transform: scale(1.1);
+      box-shadow: 0 10px 25px rgba(58, 141, 63, 0.2);
+    }
+
+    .process-title {
+      font-family: var(--ff-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .process-desc {
+      font-size: 0.85rem;
+      color: var(--clr-muted);
+    }
+
+    /* Applications */
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .app-card {
+      border-radius: var(--r-lg);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      color: var(--clr-white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 200px;
+      transition: transform var(--tr);
+    }
+
+    .app-card:hover {
+      transform: scale(1.03);
+    }
+
+    .app-card i {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+
+    .app-card h3 {
+      font-family: var(--ff-head);
+      font-size: 1.25rem;
+      font-weight: 700;
+      z-index: 1;
+    }
+
+    .app-bg-1 { background: linear-gradient(135deg, #F5A623, #FF7043); }
+    .app-bg-2 { background: linear-gradient(135deg, #1A4FA0, #42A5F5); }
+    .app-bg-3 { background: linear-gradient(135deg, #3A8D3F, #66BB6A); }
+    .app-bg-4 { background: linear-gradient(135deg, #0A1628, #37474F); }
+    .app-bg-5 { background: linear-gradient(135deg, #8E24AA, #AB47BC); }
+    .app-bg-6 { background: linear-gradient(135deg, #00897B, #26A69A); }
+
+    /* Specs & Certs */
+    .specs-section {
+      background: #0D1520;
+      color: var(--clr-white);
+    }
+    
+    .specs-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      margin-top: 3rem;
+      align-items: center;
+    }
+
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+
+    .specs-table td {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .specs-table tr:last-child td { border-bottom: none; }
+    .specs-table td:first-child { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+    .specs-table td:last-child { font-weight: 600; font-family: var(--ff-head); }
+
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .cert-item {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 1.5rem;
+      border-radius: var(--r-md);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all var(--tr);
+    }
+
+    .cert-item:hover {
+      background: rgba(245,166,35,0.15);
+      border-color: rgba(245,166,35,0.4);
+    }
+
+    .cert-item i {
+      font-size: 2rem;
+      color: var(--clr-orange);
+    }
+
+    .cert-item span {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 992px) {
+      .process-row { grid-template-columns: repeat(2, 1fr); }
+      .process-row::before { display: none; }
+      .specs-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 768px) {
+      .process-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Scroll Progress -->
+  <div id="scroll-progress"></div>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo-light.png" alt="Doon Energy Solutions Logo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'50\'><rect width=\'150\' height=\'50\' fill=\'%23eee\'/><text x=\'75\' y=\'25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'sans-serif\' font-size=\'16\' fill=\'%23333\'>Doon Energy</text></svg>'">
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="solar-epc.html">Solar EPC</a>
+        <a href="battery.html" class="active">Battery</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="nav-cta">Get Quote</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="solar-epc.html">Solar EPC</a>
+    <a href="battery.html" style="color: var(--clr-orange-dark);">Battery</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="nav-cta">Get Quote</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="hero-battery">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="particles"></div>
+    <div class="hero-overlay" style="background: transparent;"></div>
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="dot"></span> ⚡ Lithium Battery Manufacturing
+      </div>
+      <h1 class="hero-title reveal" style="animation-delay: 0.1s;">Power Storage<br><span class="accent">Built for the Future</span></h1>
+      <p class="hero-subtitle reveal" style="animation-delay: 0.2s;">
+        We manufacture high-performance LFP Lithium Iron Phosphate batteries for solar, industrial backup, EVs, and grid storage applications.
+      </p>
+      <div class="hero-actions reveal" style="animation-delay: 0.3s;">
+        <a href="#products" class="btn-primary">Explore Products</a>
+        <a href="#contact" class="btn-outline">Get Quote</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stats-inner">
+        <div class="stat-item reveal">
+          <div class="stat-num">700+</div>
+          <div class="stat-label">Battery Systems</div>
+        </div>
+        <div class="stat-item reveal" style="animation-delay: 0.1s;">
+          <div class="stat-num">10MWh+</div>
+          <div class="stat-label">Deployed</div>
+        </div>
+        <div class="stat-item reveal" style="animation-delay: 0.2s;">
+          <div class="stat-num">LFP</div>
+          <div class="stat-label">Chemistry</div>
+        </div>
+        <div class="stat-item reveal" style="animation-delay: 0.3s;">
+          <div class="stat-num">10yr</div>
+          <div class="stat-label">Warranty</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why LFP Section -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-text reveal">
+          <span class="tag tag--orange">Why Lithium LFP?</span>
+          <h2 class="section-title">The Safest, Longest-lasting Battery Chemistry</h2>
+          <p class="section-sub" style="max-width: none;">Lithium Iron Phosphate (LiFePO4) is the premier choice for stationary storage, offering unmatched safety and cycle life compared to traditional battery technologies.</p>
+          
+          <div class="why-features">
+            <div class="why-feature">
+              <div class="why-feature-icon orange"><i class="fa-solid fa-shield-halved"></i></div>
+              <div class="why-feature-content">
+                <h4>Thermal Safety</h4>
+                <p>Inherently stable chemistry with no risk of thermal runaway, making it the safest lithium technology available.</p>
+              </div>
+            </div>
+            <div class="why-feature">
+              <div class="why-feature-icon green"><i class="fa-solid fa-battery-full"></i></div>
+              <div class="why-feature-content">
+                <h4>High Cycle Life</h4>
+                <p>Delivers 4000+ cycles at 80% Depth of Discharge, lasting up to 10 years even with daily use.</p>
+              </div>
+            </div>
+            <div class="why-feature">
+              <div class="why-feature-icon blue"><i class="fa-solid fa-temperature-arrow-up"></i></div>
+              <div class="why-feature-content">
+                <h4>Wide Temperature Range</h4>
+                <p>Performs reliably in extreme Indian climates, operating smoothly from -20°C to 60°C.</p>
+              </div>
+            </div>
+            <div class="why-feature">
+              <div class="why-feature-icon green"><i class="fa-solid fa-leaf"></i></div>
+              <div class="why-feature-content">
+                <h4>Eco-friendly</h4>
+                <p>100% recyclable and free from toxic heavy metals like lead or cobalt.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comparison-wrapper reveal">
+          <table class="comp-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th class="col-lfp">Doon LFP</th>
+                <th>Lead Acid</th>
+                <th>Li-NMC</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Cycle Life</td>
+                <td class="col-lfp">4000+ Cycles</td>
+                <td>300-500 Cycles</td>
+                <td>1000-2000 Cycles</td>
+              </tr>
+              <tr>
+                <td>Safety</td>
+                <td class="col-lfp"><i class="fa-solid fa-check check-icon"></i> Excellent</td>
+                <td><i class="fa-solid fa-triangle-exclamation" style="color: #F5A623;"></i> Acid Leaks</td>
+                <td><i class="fa-solid fa-fire cross-icon"></i> Fire Risk</td>
+              </tr>
+              <tr>
+                <td>Depth of Discharge</td>
+                <td class="col-lfp">Up to 100%</td>
+                <td>50%</td>
+                <td>80-90%</td>
+              </tr>
+              <tr>
+                <td>Temperature Range</td>
+                <td class="col-lfp">-20°C to 60°C</td>
+                <td>-20°C to 45°C</td>
+                <td>-20°C to 55°C</td>
+              </tr>
+              <tr>
+                <td>Maintenance</td>
+                <td class="col-lfp"><i class="fa-solid fa-check check-icon"></i> Zero</td>
+                <td><i class="fa-solid fa-xmark cross-icon"></i> High</td>
+                <td><i class="fa-solid fa-check check-icon"></i> Zero</td>
+              </tr>
+              <tr>
+                <td>Lifespan</td>
+                <td class="col-lfp">10+ Years</td>
+                <td>2-3 Years</td>
+                <td>5-7 Years</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="section">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="tag tag--blue">Solutions</span>
+        <h2 class="section-title">Our Battery Product Range</h2>
+        <p class="section-sub">Scalable LFP energy storage solutions tailored for every application.</p>
+      </div>
+
+      <div class="products-grid">
+        <!-- Product 1 -->
+        <div class="product-card reveal">
+          <div class="prod-icon"><i class="fa-solid fa-house-chimney-bolt"></i></div>
+          <h3 class="prod-title">Home Storage Battery</h3>
+          <div class="prod-capacity">5kWh - 20kWh</div>
+          <div class="prod-specs">
+            <div class="prod-spec-item">
+              <span class="prod-spec-label">Voltage</span>
+              <span class="prod-spec-val">48V / 51.2V</span>
+            </div>
+            <div class="prod-spec-item">
+              <span class="prod-spec-label">Cycle Life</span>
+              <span class="prod-spec-val">4000+ Cycles</span>
+            </div>
+            <div class="prod-spec-item">
+              <span class="prod-spec-label">DoD</span>
+              <span class="prod-spec-val">80%</span>
+            </div>
+            <div class="prod-spec-item">
+              <span class="prod-spec-label">Warranty</span>
+              <span class="prod-spec-val">10 Years</span>
+            </div>
+            <div class="prod-spec-item">
+              <span class="prod-spec-label">BMS</span>
+              <span class="prod-spec-val">Smart Active</span>
+            </div>
+          </div>
+          <a href="#contact" class="btn-enquire">Enquire Now</a>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card reveal" style="animation-delay: 0.1s;">
+          <div class="prod-icon"><i class="fa-solid fa-building"></i></div>
+          <h3 class="prod-title">Commercial BESS</h3>
+          <div class="prod-capacity">50kWh - 500kWh</div>
+          <div class="prod-specs">
+            <div class="prod-spec-item">
+              <span class="prod-spec-label">Voltage</span>
+              <span class="prod-spec-val">High Voltage (HV)</span>
+            </div>
+            <div class="prod-spec-item">
+              <span class="prod-spec-label">Cycle Life</span>
+              <span class="prod-spec-val">6000+ Cycles</span>
+            </div>
+            <div class="prod-spec-item">
+              <span class="prod-spec-label">DoD</span>
+              <span class="prod-spec-val">90%</span>
+            </div>
+            <div class="prod-spec-item">
+              <span class="prod-spec-label">Warranty</span>
+              <span class="prod-spec-val">12 Years</span>
+            </div>
+            <div class="prod-spec-item">
+              <span class="prod-spec-label">BMS</span>
+              <span class="prod-spec-val">3-Level BMS</span>
+            </div>
+          </div>
+          <a href="#contact" class="btn-enquire">Enquire Now</a>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card reveal" style="animation-delay: 0.2s;">
+          <div class="prod-icon"><i class="fa-solid fa-industry"></i></div>
+          <h3 class="prod-title">Industrial UPS Battery</h3>
+          <div class="prod-capacity">100kWh - 5MWh</div>
+          <div class="prod-specs">
+            <div class="prod-spec-item">
+              <span class="prod-spec-label">Voltage</span>
+              <span class="prod-spec-val">Customizable</span>
+            </div>
+            <div class="prod-spec-item">
+              <span class="prod-spec-label">Cycle Life</span>
+              <span class="prod-spec-val">6000+ Cycles</span>
+            </div>
+            <div class="prod-spec-item">
+              <span class="prod-spec-label">DoD</span>
+              <span class="prod-spec-val">80%</span>
+            </div>
+            <div class="prod-spec-item">
+              <span class="prod-spec-label">Warranty</span>
+              <span class="prod-spec-val">12 Years</span>
+            </div>
+            <div class="prod-spec-item">
+              <span class="prod-spec-label">BMS</span>
+              <span class="prod-spec-val">Industrial Grade</span>
+            </div>
+          </div>
+          <a href="#contact" class="btn-enquire">Enquire Now</a>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- How It's Made -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="tag tag--green">Process</span>
+        <h2 class="section-title">Manufacturing Excellence</h2>
+        <p class="section-sub">State-of-the-art facility ensuring quality at every step.</p>
+      </div>
+      
+      <div class="process-row reveal">
+        <div class="process-step">
+          <div class="process-icon"><i class="fa-solid fa-microscope" style="color: var(--clr-blue);"></i></div>
+          <h4 class="process-title">1. Cell Sourcing</h4>
+          <p class="process-desc">Grade-A LFP cells from certified, globally recognized suppliers.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-icon"><i class="fa-solid fa-gears" style="color: var(--clr-orange);"></i></div>
+          <h4 class="process-title">2. Pack Assembly</h4>
+          <p class="process-desc">Precision automated assembly in a controlled clean room environment.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-icon"><i class="fa-solid fa-vial-circle-check" style="color: var(--clr-green);"></i></div>
+          <h4 class="process-title">3. Quality Testing</h4>
+          <p class="process-desc">100% cells tested for capacity, internal resistance, and cycle life.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-icon"><i class="fa-solid fa-truck-fast" style="color: var(--clr-blue);"></i></div>
+          <h4 class="process-title">4. Delivery & Install</h4>
+          <p class="process-desc">Pan-India delivery with comprehensive installation support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Applications Section -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center reveal">
+        <h2 class="section-title">Where Our Batteries Power the World</h2>
+      </div>
+
+      <div class="apps-grid">
+        <div class="app-card app-bg-1 reveal">
+          <i class="fa-solid fa-sun"></i>
+          <h3>Solar Energy Storage</h3>
+        </div>
+        <div class="app-card app-bg-2 reveal">
+          <i class="fa-solid fa-industry"></i>
+          <h3>Industrial Backup</h3>
+        </div>
+        <div class="app-card app-bg-3 reveal">
+          <i class="fa-solid fa-charging-station"></i>
+          <h3>EV Charging Stations</h3>
+        </div>
+        <div class="app-card app-bg-4 reveal">
+          <i class="fa-solid fa-tower-cell"></i>
+          <h3>Telecom Towers</h3>
+        </div>
+        <div class="app-card app-bg-5 reveal">
+          <i class="fa-solid fa-hospital"></i>
+          <h3>Hospitals & Healthcare</h3>
+        </div>
+        <div class="app-card app-bg-6 reveal">
+          <i class="fa-solid fa-tractor"></i>
+          <h3>Agricultural Pumps</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specs / Certifications -->
+  <section class="section specs-section">
+    <div class="container">
+      <div class="text-center reveal">
+        <h2 class="section-title" style="color: white;">Built to International Standards</h2>
+        <p class="section-sub" style="color: rgba(255,255,255,0.7);">Our systems are rigorously tested and certified for safety and performance.</p>
+      </div>
+
+      <div class="specs-grid">
+        <div class="specs-data reveal">
+          <table class="specs-table">
+            <tbody>
+              <tr>
+                <td>Cell Chemistry</td>
+                <td>LFP Grade-A</td>
+              </tr>
+              <tr>
+                <td>Cycle Life</td>
+                <td>4000+ cycles</td>
+              </tr>
+              <tr>
+                <td>Depth of Discharge (DoD)</td>
+                <td>80 - 100%</td>
+              </tr>
+              <tr>
+                <td>Operating Temperature</td>
+                <td>-20°C to 60°C</td>
+              </tr>
+              <tr>
+                <td>Round Trip Efficiency</td>
+                <td>>95%</td>
+              </tr>
+              <tr>
+                <td>Battery Management</td>
+                <td>Active Balancing BMS</td>
+              </tr>
+              <tr>
+                <td>Design Warranty</td>
+                <td>10 Years</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="certs-data reveal" style="animation-delay: 0.2s;">
+          <div class="certs-grid">
+            <div class="cert-item">
+              <i class="fa-solid fa-certificate"></i>
+              <span>IEC 62619</span>
+            </div>
+            <div class="cert-item">
+              <i class="fa-solid fa-plane-circle-check"></i>
+              <span>UN 38.3</span>
+            </div>
+            <div class="cert-item">
+              <i class="fa-solid fa-award"></i>
+              <span>CE Certified</span>
+            </div>
+            <div class="cert-item">
+              <i class="fa-solid fa-stamp"></i>
+              <span>BIS Approved</span>
+            </div>
+            <div class="cert-item" style="grid-column: span 2;">
+              <i class="fa-solid fa-check-double"></i>
+              <span>ISO 9001:2015</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="tag tag--orange">Get in touch</span>
+        <h2 class="section-title">Request a Quote</h2>
+        <p class="section-sub">Contact us today to discuss your battery storage requirements.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h3>Contact Information</h3>
+          <p>Reach out to our experts for consultation, product catalogs, or custom energy storage solutions tailored to your needs.</p>
+          
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-item-icon blue"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="contact-item-text">
+                <strong>Our Office & Facility</strong>
+                <span>711 Doon Enclave, Vidhyadhar Nagar<br>Jaipur 302039</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon orange"><i class="fa-solid fa-phone"></i></div>
+              <div class="contact-item-text">
+                <strong>Toll Free Phone</strong>
+                <a href="tel:18002020866" style="font-weight:600;">1800 2020 866</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon green"><i class="fa-solid fa-envelope"></i></div>
+              <div class="contact-item-text">
+                <strong>Email Us</strong>
+                <a href="mailto:info@dooninfra.in">info@dooninfra.in</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="contact-form reveal">
+          <h3>Send us a Message</h3>
+          <form id="enquiryForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="bf-name" required placeholder="John Doe">
+              </div>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" id="bf-phone" required placeholder="+91 00000 00000">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" id="bf-email" required placeholder="john@example.com">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Battery Application</label>
+                <select id="bf-application" required>
+                  <option value="" disabled selected>Select Application</option>
+                  <option value="Solar Storage">Solar Storage</option>
+                  <option value="Industrial Backup">Industrial Backup</option>
+                  <option value="EV Charging">EV Charging</option>
+                  <option value="Telecom">Telecom</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Capacity Required (kWh)</label>
+                <input type="number" id="bf-capacity" placeholder="e.g. 50">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea id="bf-message" placeholder="Tell us about your requirements..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Submit Enquiry</button>
+          </form>
+          <div id="formSuccess" class="form-success">
+            <div class="check" style="color: var(--clr-green);"><i class="fa-solid fa-circle-check"></i></div>
+            <h4>Thank You!</h4>
+            <p>Your enquiry has been received. Our team will contact you shortly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo-footer.png" alt="Doon Energy Solutions Logo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'50\'><rect width=\'150\' height=\'50\' fill=\'%23eee\'/><text x=\'75\' y=\'25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'sans-serif\' font-size=\'16\' fill=\'%23333\'>Doon Energy</text></svg>'">
+          <p>Doon Energy Solutions Pvt. Ltd. is a leading provider of innovative solar solutions and premium lithium battery manufacturing based in Jaipur, India.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="solar-epc.html">Solar EPC</a></li>
+            <li><a href="battery.html">Lithium Batteries</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="solar-epc.html">Residential Solar</a></li>
+            <li><a href="solar-epc.html">Commercial EPC</a></li>
+            <li><a href="battery.html">Battery Storage</a></li>
+            <li><a href="#">O&M Services</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="tel:18002020866">1800 2020 866 <span style="font-size:0.8em; opacity:0.8;">(Toll Free)</span></a></li>
+            <li><a href="mailto:info@dooninfra.in">info@dooninfra.in</a></li>
+            <li><a href="#">Jaipur, India</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div>&copy; 2026 Doon Energy Solutions Pvt. Ltd. All rights reserved.</div>
+        <div>Designed with ❤️ by Mohit Saini</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Navbar Scroll Effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileNav.classList.toggle('open');
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('#mobile-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileNav.classList.remove('open');
+      });
+    });
+
+    // Form Submission (FormSubmit.co)
+    const enquiryForm = document.getElementById('enquiryForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    if (enquiryForm) {
+      enquiryForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('bf-name').value.trim();
+        const phone = document.getElementById('bf-phone').value.trim();
+        const email = document.getElementById('bf-email').value.trim();
+        const application = document.getElementById('bf-application').value;
+        const capacity = document.getElementById('bf-capacity').value.trim();
+        const message = document.getElementById('bf-message').value.trim();
+        const submitBtn = enquiryForm.querySelector('button[type="submit"]');
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        fetch("https://formsubmit.co/ajax/dooninfra.solar@gmail.com", {
+          method: "POST",
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            Name: name,
+            Phone: phone,
+            Email: email,
+            Application: application,
+            "Capacity Required (kWh)": capacity,
+            Message: message
+          })
+        })
+        .then(() => {
+          enquiryForm.style.display = 'none';
+          formSuccess.style.display = 'block';
+        })
+        .catch((err) => {
+          console.error(err);
+          alert("Something went wrong. Please try again or contact us directly.");
+          submitBtn.textContent = 'Submit Enquiry';
+          submitBtn.disabled = false;
+        });
+      });
+    }
+
+    // Intersection Observer for Scroll Animations (Fallback)
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animation = `reveal-in 0.6s ease forwards ${entry.target.style.animationDelay || '0s'}`;
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(28px)';
+        observer.observe(el);
+      });
+    }
+  </script>
+</body>
+</html>

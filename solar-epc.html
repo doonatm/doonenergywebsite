@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar EPC Services | Doon Energy Solutions Pvt. Ltd.</title>
+  <meta name="description" content="End-to-End Solar EPC Solutions in Jaipur, Rajasthan, India. From survey to grid connection — we engineer, procure & construct solar systems that perform.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/logo-light.png" type="image/png">
+
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  
+  <style>
+    /* Specific styles for Solar EPC Page */
+    .epc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .epc-card {
+      background: var(--clr-white);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-xl);
+      padding: 2.5rem;
+      transition: transform var(--tr), box-shadow var(--tr);
+      height: 100%;
+    }
+    .epc-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    .epc-icon {
+      width: 64px; height: 64px;
+      border-radius: var(--r-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .epc-icon.engineering { background: var(--clr-orange-light); color: var(--clr-orange-dark); }
+    .epc-icon.procurement { background: var(--clr-blue-light); color: var(--clr-blue); }
+    .epc-icon.construction { background: var(--clr-green-light); color: var(--clr-green); }
+    
+    .epc-card h3 {
+      font-family: var(--ff-head);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--clr-text);
+    }
+    .epc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .epc-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--clr-muted);
+    }
+    .epc-list li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: var(--clr-green);
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+    }
+
+    /* System Types */
+    .system-types-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .system-card {
+      background: var(--clr-white);
+      border-radius: var(--r-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      transition: var(--tr);
+      border: 1px solid var(--clr-border);
+    }
+    .system-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--clr-orange);
+      transform: translateY(-5px);
+    }
+    .system-emoji {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+    .system-card h4 {
+      font-family: var(--ff-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--clr-text);
+    }
+    .system-card p {
+      font-size: 0.9rem;
+      color: var(--clr-muted);
+    }
+
+    /* Process Timeline */
+    .process-timeline {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 4rem;
+      position: relative;
+    }
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      top: 32px;
+      left: 32px;
+      right: 32px;
+      height: 2px;
+      background: var(--clr-border);
+      z-index: 1;
+    }
+    .process-step {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      text-align: center;
+      padding: 0 10px;
+    }
+    .process-circle {
+      width: 64px;
+      height: 64px;
+      background: var(--clr-white);
+      border: 3px solid var(--clr-orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--ff-head);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--clr-orange);
+      margin: 0 auto 1.25rem;
+      transition: var(--tr);
+      box-shadow: 0 0 0 8px var(--clr-bg);
+    }
+    .process-step:hover .process-circle {
+      background: var(--clr-orange);
+      color: var(--clr-white);
+      transform: scale(1.1);
+    }
+    .process-step h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--clr-text);
+      line-height: 1.4;
+      font-family: var(--ff-head);
+    }
+
+    @media (max-width: 992px) {
+      .process-timeline {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+        padding-left: 1rem;
+      }
+      .process-timeline::before {
+        left: 48px; /* 1rem + 32px (half of 64px) */
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        height: auto;
+        right: auto;
+      }
+      .process-step {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        gap: 1.5rem;
+        padding: 0;
+      }
+      .process-circle {
+        margin: 0;
+        flex-shrink: 0;
+        box-shadow: 0 10px 0 0 var(--clr-bg), 0 -10px 0 0 var(--clr-bg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Scroll Progress -->
+  <div id="scroll-progress"></div>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo-light.png" alt="Doon Energy Solutions Logo" onerror="this.src='https://via.placeholder.com/200x52?text=DOON+ENERGY'">
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="solar-epc.html" class="active" style="color: var(--clr-orange-dark);">Solar EPC</a>
+        <a href="battery.html">Battery</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="nav-cta">Get Free Quote</a>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu" id="hamburger-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="solar-epc.html" style="color: var(--clr-orange-dark);">Solar EPC</a>
+    <a href="battery.html">Battery</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="nav-cta">Get Free Quote</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-bg" style="background-image: url('images/solar_epc_hero.jpg');"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span> Solar EPC Services
+      </div>
+      <h1 class="hero-title">End-to-End <span class="accent">Solar EPC Solutions</span></h1>
+      <p class="hero-subtitle">From survey to grid connection — we engineer, procure & construct solar systems that perform.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Get Free Quote <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#process" class="btn-outline">View Projects</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stats-inner">
+        <div class="stat-item reveal">
+          <div class="stat-num">700+</div>
+          <div class="stat-label">PROJECTS</div>
+        </div>
+        <div class="stat-item reveal" style="animation-delay: 0.1s;">
+          <div class="stat-num">10+ MW</div>
+          <div class="stat-label">INSTALLED</div>
+        </div>
+        <div class="stat-item reveal" style="animation-delay: 0.2s;">
+          <div class="stat-num">25yr</div>
+          <div class="stat-label">PANEL WARRANTY</div>
+        </div>
+        <div class="stat-item reveal" style="animation-delay: 0.3s;">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">ON-TIME DELIVERY</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What is EPC Section -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="tag tag--orange">What We Do</span>
+        <h2 class="section-title">Engineering · Procurement · Construction</h2>
+        <p class="section-sub">We handle every aspect of your solar project with precision and expertise, delivering a seamless transition to clean energy.</p>
+      </div>
+
+      <div class="epc-grid">
+        <!-- Engineering -->
+        <div class="epc-card reveal">
+          <div class="epc-icon engineering">
+            <i class="fa-solid fa-compass-drafting"></i>
+          </div>
+          <h3>Engineering</h3>
+          <ul class="epc-list">
+            <li>Site survey & shadow analysis</li>
+            <li>Load analysis & capacity sizing</li>
+            <li>Structural design & wind load calculations</li>
+            <li>Electrical single-line diagrams (SLD)</li>
+            <li>3D modeling & layout planning</li>
+          </ul>
+        </div>
+
+        <!-- Procurement -->
+        <div class="epc-card reveal" style="animation-delay: 0.1s;">
+          <div class="epc-icon procurement">
+            <i class="fa-solid fa-boxes-packing"></i>
+          </div>
+          <h3>Procurement</h3>
+          <ul class="epc-list">
+            <li>Tier-1 panels (Adani, Waaree, Vikram)</li>
+            <li>High-efficiency string inverters</li>
+            <li>Galvanized iron (GI) mounting structures</li>
+            <li>Premium DC/AC cables & conduits</li>
+            <li>Advanced protection devices (ACDB/DCDB)</li>
+          </ul>
+        </div>
+
+        <!-- Construction -->
+        <div class="epc-card reveal" style="animation-delay: 0.2s;">
+          <div class="epc-icon construction">
+            <i class="fa-solid fa-helmet-safety"></i>
+          </div>
+          <h3>Construction</h3>
+          <ul class="epc-list">
+            <li>Civil works & foundation laying</li>
+            <li>Mounting structure installation</li>
+            <li>Precise panel placement & alignment</li>
+            <li>Electrical wiring & inverter commissioning</li>
+            <li>Grid tie-in, testing & handover</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- System Types Section -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="tag tag--blue">Solutions</span>
+        <h2 class="section-title">Solar Systems We Install</h2>
+        <p class="section-sub">Tailored solar solutions for every energy requirement, from compact homes to massive industrial complexes.</p>
+      </div>
+
+      <div class="system-types-grid">
+        <div class="system-card reveal">
+          <span class="system-emoji">🏠</span>
+          <h4>Residential Rooftop</h4>
+          <p>1kW - 20kW capacity. Perfect for homes and bungalows to slash electricity bills.</p>
+        </div>
+        <div class="system-card reveal" style="animation-delay: 0.1s;">
+          <span class="system-emoji">🏢</span>
+          <h4>Commercial Rooftop</h4>
+          <p>20kW - 500kW capacity. Ideal for offices, malls, schools, and factories.</p>
+        </div>
+        <div class="system-card reveal" style="animation-delay: 0.2s;">
+          <span class="system-emoji">🏭</span>
+          <h4>Ground Mount / Solar Farm</h4>
+          <p>500kW - 10MW+ capacity. Utility-scale projects for maximum generation.</p>
+        </div>
+        <div class="system-card reveal" style="animation-delay: 0.3s;">
+          <span class="system-emoji">🌾</span>
+          <h4>Agricultural Solar Pump</h4>
+          <p>1HP - 20HP capacity. Reliable irrigation solutions for farmers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="section" id="process">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="tag tag--green">Workflow</span>
+        <h2 class="section-title">Our 6-Step EPC Process</h2>
+        <p class="section-sub">A streamlined, transparent approach to bringing your solar project to life.</p>
+      </div>
+
+      <div class="process-timeline reveal">
+        <div class="process-step">
+          <div class="process-circle">1</div>
+          <h4>Site Survey &<br>Feasibility</h4>
+        </div>
+        <div class="process-step">
+          <div class="process-circle">2</div>
+          <h4>Design &<br>Engineering</h4>
+        </div>
+        <div class="process-step">
+          <div class="process-circle">3</div>
+          <h4>Procurement &<br>Logistics</h4>
+        </div>
+        <div class="process-step">
+          <div class="process-circle">4</div>
+          <h4>Civil &<br>Structural Work</h4>
+        </div>
+        <div class="process-step">
+          <div class="process-circle">5</div>
+          <h4>Installation &<br>Commissioning</h4>
+        </div>
+        <div class="process-step">
+          <div class="process-circle">6</div>
+          <h4>Grid Connection<br>& Handover</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="tag tag--orange">The Doon Advantage</span>
+        <h2 class="section-title">Why Choose Doon EPC</h2>
+      </div>
+
+      <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div class="service-card reveal" style="padding: 2rem; display: flex; align-items: flex-start; gap: 1rem;">
+          <div class="service-icon" style="flex-shrink: 0; background: var(--clr-orange-light); color: var(--clr-orange); margin: 0; width: 48px; height: 48px; font-size: 1.25rem;">
+            <i class="fa-solid fa-users-gear"></i>
+          </div>
+          <div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">In-house engineering team</h3>
+            <p>Expert engineers designing optimized systems for maximum yield.</p>
+          </div>
+        </div>
+        
+        <div class="service-card reveal" style="padding: 2rem; display: flex; align-items: flex-start; gap: 1rem;">
+          <div class="service-icon" style="flex-shrink: 0; background: var(--clr-blue-light); color: var(--clr-blue); margin: 0; width: 48px; height: 48px; font-size: 1.25rem;">
+            <i class="fa-solid fa-file-signature"></i>
+          </div>
+          <div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">DISCOM & net-metering</h3>
+            <p>End-to-end liaisoning and approvals with local electricity boards.</p>
+          </div>
+        </div>
+
+        <div class="service-card reveal" style="padding: 2rem; display: flex; align-items: flex-start; gap: 1rem;">
+          <div class="service-icon" style="flex-shrink: 0; background: var(--clr-green-light); color: var(--clr-green); margin: 0; width: 48px; height: 48px; font-size: 1.25rem;">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+          </div>
+          <div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Subsidy assistance</h3>
+            <p>Full support for PM Surya Ghar and state-level subsidy claims.</p>
+          </div>
+        </div>
+
+        <div class="service-card reveal" style="padding: 2rem; display: flex; align-items: flex-start; gap: 1rem;">
+          <div class="service-icon" style="flex-shrink: 0; background: var(--clr-orange-light); color: var(--clr-orange); margin: 0; width: 48px; height: 48px; font-size: 1.25rem;">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">25-year performance guarantee</h3>
+            <p>Tier-1 panels backed by a robust 25-year linear performance warranty.</p>
+          </div>
+        </div>
+
+        <div class="service-card reveal" style="padding: 2rem; display: flex; align-items: flex-start; gap: 1rem;">
+          <div class="service-icon" style="flex-shrink: 0; background: var(--clr-blue-light); color: var(--clr-blue); margin: 0; width: 48px; height: 48px; font-size: 1.25rem;">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+          </div>
+          <div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Post-installation AMC</h3>
+            <p>Comprehensive annual maintenance contracts to ensure peak efficiency.</p>
+          </div>
+        </div>
+
+        <div class="service-card reveal" style="padding: 2rem; display: flex; align-items: flex-start; gap: 1rem;">
+          <div class="service-icon" style="flex-shrink: 0; background: var(--clr-green-light); color: var(--clr-green); margin: 0; width: 48px; height: 48px; font-size: 1.25rem;">
+            <i class="fa-solid fa-map-location-dot"></i>
+          </div>
+          <div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Pan-India project execution</h3>
+            <p>Capability and logistics network to execute projects across the country.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <span class="tag tag--orange">Get in Touch</span>
+          <h3>Ready to Go Solar?</h3>
+          <p>Fill out the form to request a free site survey and quotation. Our solar experts will get back to you within 24 hours.</p>
+
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-item-icon orange">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div class="contact-item-text">
+                <strong>Toll Free Phone</strong>
+                <a href="tel:18002020866" style="font-weight:600;">1800 2020 866</a>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-item-icon blue">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="contact-item-text">
+                <strong>Email Us</strong>
+                <a href="mailto:info@dooninfra.in">info@dooninfra.in</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon green">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="contact-item-text">
+                <strong>Visit Us</strong>
+                <span>711 Doon Enclave, Vidhyadhar Nagar,<br>Jaipur 302039</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper reveal" style="animation-delay: 0.2s;">
+          <form class="contact-form" id="epc-form">
+            <h3>Request a Quote</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" id="ef-name" placeholder="Your Name" required>
+              </div>
+              <div class="form-group">
+                <label>Phone</label>
+                <input type="tel" id="ef-phone" placeholder="Your Phone Number" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="ef-email" placeholder="Your Email Address" required>
+              </div>
+              <div class="form-group">
+                <label>Location/City</label>
+                <input type="text" id="ef-city" placeholder="Project City" required>
+              </div>
+            </div>
+
+
+
+            <div class="form-group">
+
+              <label>Message</label>
+              <textarea id="ef-message" placeholder="Tell us about your project requirements..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Submit Inquiry</button>
+
+
+
+            <div class="form-success" id="form-success-msg">
+              <div class="check">✅</div>
+              <h4>Message Sent!</h4>
+              <p>We'll get back to you shortly.</p>
+            </div>
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <img src="images/logo-footer.png" alt="Doon Energy Logo" onerror="this.src='https://via.placeholder.com/200x52?text=DOON+ENERGY'">
+          <p>Beyond Energy Beyond Expectations. We are dedicated to providing world-class solar and battery solutions across India.</p>
+
+
+          <div class="footer-social">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="solar-epc.html">Solar EPC</a></li>
+            <li><a href="battery.html">Battery Solutions</a></li>
+            <li><a href="#process">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#">Residential Solar</a></li>
+            <li><a href="#">Commercial Solar</a></li>
+            <li><a href="#">Industrial Solar</a></li>
+            <li><a href="#">Agricultural Solar</a></li>
+            <li><a href="#">Solar AMC</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="tel:18002020866">1800 2020 866 <span style="font-size:0.8em; opacity:0.8;">(Toll Free)</span></a></li>
+            <li><a href="mailto:info@dooninfra.in">info@dooninfra.in</a></li>
+            <li><a href="#">711 Doon Enclave,<br>Vidhyadhar Nagar,<br>Jaipur 302039</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Doon Energy Solutions Pvt. Ltd. All rights reserved.</p>
+        <p>Designed with ❤️ by Mohit Saini</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Navbar Scroll Effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile Menu Toggle
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    hamburgerBtn.addEventListener('click', () => {
+      hamburgerBtn.classList.toggle('open');
+      mobileNav.classList.toggle('open');
+    });
+
+    // Close mobile menu on link click
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('open');
+        mobileNav.classList.remove('open');
+      });
+    });
+
+    // Form Submission (Simulated)
+    const epcForm = document.getElementById('epc-form');
+    const formSuccess = document.getElementById('form-success-msg');
+
+
+    if(epcForm) {
+      epcForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('ef-name').value.trim();
+        const phone = document.getElementById('ef-phone').value.trim();
+        const email = document.getElementById('ef-email').value.trim();
+        const city = document.getElementById('ef-city').value.trim();
+        const type = document.getElementById('ef-type').value;
+        const capacity = document.getElementById('ef-capacity').value.trim();
+        const message = document.getElementById('ef-message').value.trim();
+        const submitBtn = epcForm.querySelector('button[type="submit"]');
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        fetch("https://formsubmit.co/ajax/dooninfra.solar@gmail.com", {
+          method: "POST",
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            Name: name,
+            Phone: phone,
+            Email: email,
+            City: city,
+            "System Type": type,
+            "Capacity Required": capacity,
+            Message: message
+          })
+        })
+        .then(() => {
+          const elementsToHide = epcForm.querySelectorAll('input, select, textarea, button, .form-row, .form-group');
+          elementsToHide.forEach(el => el.style.display = 'none');
+          epcForm.querySelector('h3').style.display = 'none';
+          formSuccess.style.display = 'block';
+        })
+        .catch((err) => {
+          console.error(err);
+          alert("Something went wrong. Please try again or contact us directly.");
+          submitBtn.textContent = 'Submit Inquiry';
+          submitBtn.disabled = false;
+        });
+      });
+    }
+
+    // Intersection Observer for scroll animations fallback
+    // (In case CSS scroll-timeline is not supported)
+    if (!CSS.supports('animation-timeline: scroll()')) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animation = 'reveal-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      document.querySelectorAll('.reveal').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(28px)';
+        observer.observe(el);
+      });
+    }
+  </script>
+</body>
+</html>
