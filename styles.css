@@ -766,8 +766,61 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .form-group input[type="range"] {
   padding: 0;
   border: none;
-  accent-color: var(--clr-orange);
+  background: transparent;
   height: 6px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  margin: 1rem 0 .5rem;
+}
+/* Track */
+.form-group input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 99px;
+  background: linear-gradient(
+    to right,
+    var(--clr-orange) 0%,
+    var(--clr-orange) var(--range-progress, 50%),
+    #e2e8f0 var(--range-progress, 50%),
+    #e2e8f0 100%
+  );
+}
+.form-group input[type="range"]::-moz-range-track {
+  height: 6px;
+  border-radius: 99px;
+  background: #e2e8f0;
+}
+.form-group input[type="range"]::-moz-range-progress {
+  height: 6px;
+  border-radius: 99px;
+  background: var(--clr-orange);
+}
+/* Thumb */
+.form-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--clr-orange);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(245,166,35,0.5);
+  margin-top: -8px;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+}
+.form-group input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 16px rgba(245,166,35,0.6);
+}
+.form-group input[type="range"]::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--clr-orange);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(245,166,35,0.5);
   cursor: pointer;
 }
 .range-labels {

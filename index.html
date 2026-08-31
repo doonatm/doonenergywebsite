@@ -863,10 +863,22 @@
   const billInput = document.getElementById('monthly-bill');
   const connectionType = document.getElementById('connection-type');
 
-  // Update tariff display
+  // Helper: update slider track fill
+  function updateSliderFill(slider) {
+    const min = parseFloat(slider.min) || 0;
+    const max = parseFloat(slider.max) || 100;
+    const val = parseFloat(slider.value) || 0;
+    const pct = ((val - min) / (max - min)) * 100;
+    slider.style.setProperty('--range-progress', pct + '%');
+  }
+
+  // Update tariff display + track fill
   tariffInput.addEventListener('input', () => {
     tariffDisplay.textContent = ` – ₹${parseFloat(tariffInput.value).toFixed(1)}/unit`;
+    updateSliderFill(tariffInput);
   });
+  // Set initial fill on load
+  updateSliderFill(tariffInput);
 
   function runCalc() {
     const bill = parseFloat(billInput.value) || 5000;
