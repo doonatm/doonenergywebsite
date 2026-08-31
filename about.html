@@ -326,6 +326,17 @@
     @media (max-width: 768px) {
       .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
       .contact-info { padding: 2rem; }
+      .about-contact-outer {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+      .about-contact-form-box {
+        padding: 1.75rem 1.25rem !important;
+      }
+      .about-form-name-row {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
     }
 
     /* Footer */
@@ -747,7 +758,7 @@
       </div>
 
       <!-- Grid -->
-      <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:2.5rem;align-items:start;">
+      <div class="about-contact-outer" style="display:grid;grid-template-columns:1fr 1.6fr;gap:2.5rem;align-items:start;">
 
         <!-- Left: Info -->
         <div class="reveal" style="display:flex;flex-direction:column;gap:1.25rem;">
@@ -779,10 +790,10 @@
         </div>
 
         <!-- Right: Form -->
-        <div class="reveal" style="animation-delay:0.15s;background:#fff;border-radius:1.5rem;padding:2.75rem;box-shadow:0 24px 64px rgba(0,0,0,0.25);">
+        <div class="reveal about-contact-form-box" style="animation-delay:0.15s;background:#fff;border-radius:1.5rem;padding:2.75rem;box-shadow:0 24px 64px rgba(0,0,0,0.25);">
           <h3 style="font-family:var(--ff-head);font-size:1.6rem;font-weight:800;color:var(--clr-text);margin-bottom:.4rem;">Send Us a Message</h3>
           <form id="about-contact-form" onsubmit="handleAboutForm(event)" style="display:flex;flex-direction:column;gap:1.25rem;">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
+            <div class="about-form-name-row" style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
               <div>
                 <label style="display:block;font-size:.8rem;font-weight:700;color:var(--clr-text);margin-bottom:.5rem;letter-spacing:.04em;text-transform:uppercase;">Full Name</label>
                 <input type="text" id="af-name" required placeholder="Rahul Sharma" style="width:100%;padding:.85rem 1rem;border:1.5px solid var(--clr-border);border-radius:.75rem;font-family:var(--ff-body);font-size:.95rem;outline:none;transition:border-color .2s;box-sizing:border-box;" onfocus="this.style.borderColor='#1A4FA0'" onblur="this.style.borderColor='var(--clr-border)'">
