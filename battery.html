@@ -105,28 +105,62 @@
       padding: 2rem;
       box-shadow: var(--shadow-lg);
       overflow-x: auto;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none;  /* IE and Edge */
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: #F5A623 #f1f1f1;
     }
     .comparison-wrapper::-webkit-scrollbar {
-      display: none; /* Chrome, Safari and Opera */
+      height: 4px;
+    }
+    .comparison-wrapper::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+    .comparison-wrapper::-webkit-scrollbar-thumb {
+      background: #F5A623;
+      border-radius: 4px;
+    }
+    .swipe-hint {
+      display: none;
+      text-align: center;
+      font-size: .78rem;
+      color: #999;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+    @media (max-width: 768px) {
+      .comparison-wrapper { padding: 1rem .5rem; border-radius: 1rem; }
+      .swipe-hint { display: block; }
     }
 
     .comp-table {
       width: 100%;
       border-collapse: collapse;
+      min-width: 520px;
     }
 
     .comp-table th, .comp-table td {
       padding: 1.25rem 1rem;
       text-align: center;
       border-bottom: 1px solid var(--clr-border);
+      white-space: nowrap;
     }
     
     .comp-table th:first-child, .comp-table td:first-child {
       text-align: left;
       font-weight: 600;
       color: var(--clr-text);
+      position: sticky;
+      left: 0;
+      background: #fff;
+      z-index: 1;
+      white-space: normal;
+      min-width: 110px;
+    }
+
+    @media (max-width: 768px) {
+      .comp-table th, .comp-table td { padding: .75rem .6rem; font-size: .85rem; }
+      .comp-table th:first-child, .comp-table td:first-child { min-width: 95px; font-size: .82rem; }
     }
 
     .comp-table th {
@@ -572,6 +606,7 @@
           </div>
         </div>
 
+        <p class="swipe-hint">👈 Swipe to compare →</p>
         <div class="comparison-wrapper reveal">
           <table class="comp-table">
             <thead>
