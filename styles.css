@@ -415,52 +415,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   letter-spacing: .04em;
 }
 
-/* ── Mobile hero stats overhaul ── */
-@media (max-width: 768px) {
-  .hero {
-    min-height: auto;
-    overflow: visible;
-    padding-bottom: 0;
-  }
-  .hero-bg, .hero-overlay {
-    position: absolute;
-    min-height: 70vw;
-  }
-  .hero-content {
-    padding-block: 5rem 3rem;
-    min-height: 65vw;
-  }
-  .hero-stats {
-    position: static;
-    background: linear-gradient(135deg, #1A4FA0 0%, #0f3070 100%);
-    backdrop-filter: none;
-    border-top: none;
-  }
-  .hero-stats-inner {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 0;
-    gap: 0;
-  }
-  .stat-item {
-    padding: 1.25rem 1rem;
-    border-right: 1px solid rgba(255,255,255,.15);
-    border-bottom: 1px solid rgba(255,255,255,.15);
-  }
-  .stat-item:nth-child(2),
-  .stat-item:nth-child(4) { border-right: none; }
-  .stat-item:nth-child(3),
-  .stat-item:nth-child(4) { border-bottom: none; }
-  .stat-num {
-    font-size: 1.9rem;
-    color: var(--clr-orange);
-  }
-  .stat-label {
-    font-size: .74rem;
-    color: rgba(255,255,255,.85);
-    margin-top: .35rem;
-  }
-}
-
 @keyframes fadeDown {
   from { opacity: 0; transform: translateY(-16px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -1134,6 +1088,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .hamburger { display: flex; }
+  .hero-stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .stat-item:nth-child(2) { border-right: none; }
   .form-row { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .footer-bottom { flex-direction: column; text-align: center; }
