@@ -1111,6 +1111,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .stat-item:nth-child(4) { border-bottom: none; }
   .stat-num  { font-size: 1.5rem; }
   .stat-label { font-size: .68rem; margin-top: .2rem; }
+
+  /* Who-stats cards → 1 column on mobile */
+  .who-stats { grid-template-columns: 1fr; gap: .75rem; }
+  .who-stat-card { padding: 1rem 1.1rem; gap: .85rem; }
+  .who-stat-body strong { font-size: .9rem; }
+  .who-stat-body span   { font-size: .78rem; }
 }
 
 @media (max-width: 480px) {
