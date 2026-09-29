@@ -138,8 +138,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    ============================================================ */
 #navbar {
   position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 1000;
+  top: 38px; left: 0; right: 0;
+  z-index: 999;
   background: rgba(255,255,255,0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -264,7 +264,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding-top: 70px;
+  padding-top: 108px;
 }
 .hero-bg {
   position: absolute;
