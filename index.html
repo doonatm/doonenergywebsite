@@ -25,16 +25,19 @@
 
 <body>
   <!-- Top Notification Bar -->
-  <div id="top-bar" style="background:linear-gradient(90deg,#1A4FA0 0%,#0f3070 100%);color:#fff;text-align:center;padding:.5rem 1rem;font-size:.85rem;font-weight:500;letter-spacing:.02em;position:fixed;top:0;left:0;right:0;z-index:1001;">
-    <span style="display:inline-flex;align-items:center;gap:.5rem;flex-wrap:wrap;justify-content:center;">
-      <i class="fa-solid fa-phone-volume" style="color:#F5A623;margin-right:.25rem;"></i> <strong>Toll-Free:</strong>&nbsp;<a href="tel:18002020866" style="color:#F5A623;font-weight:700;text-decoration:none;letter-spacing:.04em;">1800 2020 866</a>
-      &nbsp;|&nbsp; Mon-Sat: 9:00 AM - 7:00 PM
-      &nbsp;|&nbsp; <a href="mailto:info@dooninfra.in" style="color:#F5A623;font-weight:600;text-decoration:none;">info@dooninfra.in</a>
-    </span>
+    <div id="top-bar" style="background:linear-gradient(90deg,#1A4FA0 0%,#0f3070 100%);color:#fff;text-align:center;padding:.38rem 3rem .38rem 1rem;font-size:.82rem;font-weight:500;letter-spacing:.02em;position:fixed;top:0;left:0;right:0;z-index:1001;white-space:nowrap;overflow:hidden;">
+    <style>
+      @media(max-width:600px){
+        .tb-hide{display:none!important;}
+        #top-bar{font-size:.78rem;padding:.38rem 2.5rem .38rem .75rem;}
+      }
+    </style>
+    <i class="fa-solid fa-phone-volume" style="color:#F5A623;margin-right:.3rem;"></i>
+    <strong>Toll-Free:</strong>&nbsp;<a href="tel:18002020866" style="color:#F5A623;font-weight:700;text-decoration:none;letter-spacing:.05em;">1800 2020 866</a>
+    <span class="tb-hide">&nbsp;&nbsp;|&nbsp;&nbsp;Mon-Sat: 9:00 AM - 7:00 PM&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:info@dooninfra.in" style="color:#F5A623;font-weight:600;text-decoration:none;">info@dooninfra.in</a></span>
     <button onclick="document.getElementById('top-bar').style.display='none'" aria-label="Close"
-      style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.6);font-size:1.1rem;cursor:pointer;line-height:1;padding:0;">&times;</button>
+      style="position:absolute;right:.75rem;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.7);font-size:1.1rem;cursor:pointer;line-height:1;padding:0;">&times;</button>
   </div>
-
 
 <!-- Scroll Progress Bar -->
 <div id="scroll-progress" aria-hidden="true"></div>
